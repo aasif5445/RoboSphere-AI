@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Chakra Petch', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background-color: #050505;
+    color: #e2e8f0;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: 0.04em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom glowing effects & animations */
+@keyframes laserSweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes hudPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes gridFloat {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+
+.animate-laser {
+  animation: laserSweep 4s ease-in-out infinite;
+}
+
+.animate-hud-pulse {
+  animation: hudPulse 3s ease-in-out infinite;
+}
+
+/* Robot Vision Mode HUD Overlay */
+.robot-vision-active {
+  position: relative;
+}
+
+.robot-vision-active::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%), linear-gradient(90deg, rgba(255, 43, 43, 0.03), rgba(0, 255, 128, 0.01), rgba(255, 43, 43, 0.03));
+  z-index: 9998;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+.robot-vision-active::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(255, 30, 30, 0.22) 100%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a1111;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 43, 43, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2b2b;
+}

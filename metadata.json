@@ -1,0 +1,6 @@
+{
+  "name": "RoboSphere AI",
+  "description": "Futuristic IEEE RAS AI & RAG Assistant for robotics and automation with interactive 3D simulations, document indexing, and Robot Vision HUD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
